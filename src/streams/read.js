@@ -1,6 +1,6 @@
-import { createReadStream } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { createReadStream } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { pipeline } from 'stream/promises';
 
 const read = async () => {
@@ -10,7 +10,6 @@ const read = async () => {
 
   try {
     await pipeline(readStream, process.stdout);
-    console.log('Read stream complete.');
   } catch (error) {
     console.error('Error in read stream:', error);
   }

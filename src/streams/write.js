@@ -1,6 +1,6 @@
-import { createWriteStream } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { createWriteStream } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { pipeline } from 'stream/promises';
 
 const write = async () => {
@@ -10,7 +10,6 @@ const write = async () => {
 
   try {
     await pipeline(process.stdin, writeStream);
-    console.log('Write stream complete.');
   } catch (error) {
     console.error('Error in write stream:', error);
   }
