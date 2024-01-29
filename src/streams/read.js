@@ -11,7 +11,11 @@ const read = async () => {
   try {
     await pipeline(readStream, process.stdout);
   } catch (error) {
-    console.error('Error in read stream:', error);
+    if (error.code === 'ENOENT') {
+      console.error('Error: File does not exist:', filePath);
+    } else {
+      console.error('Error in reading stream:', error);
+    }
   }
 };
 

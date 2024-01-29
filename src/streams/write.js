@@ -11,7 +11,7 @@ const write = async () => {
   try {
     await pipeline(process.stdin, writeStream);
   } catch (error) {
-    console.error('Error in write stream:', error);
+    console.error('Error in writing stream:', error);
   }
 };
 
